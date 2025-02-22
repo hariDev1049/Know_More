@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js News App
 
-## Getting Started
+A **server-side rendered (SSR) news application** built with **Next.js (App Router)** and Tailwind CSS, fetching news dynamically based on categories.
 
-First, run the development server:
+## 🚀 Features
+- **Server-Side Rendering (SSR)** for dynamic category-based news fetching.
+- **API Routes** for fetching news from an external source.
+- **Dynamic Routing** with `/news/[category]` pages.
+- **Styled with Tailwind CSS** for responsive and modern UI.
+- **Hover Flip Effect** on news cards (without Framer Motion).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📂 Folder Structure
+```
+/nextjs-news-app
+│── app/
+│   ├── api/news/[category]/route.js  # API route to fetch news
+│   ├── news/[category]/page.jsx      # Dynamic news category page
+│   ├── layout.jsx                    # Main layout component
+│   ├── globals.css                   # Global styles
+|   ├── page.jsx                      # Home page
+│── components/
+│   ├── Card.jsx                       # News card component
+|   ├── News.jsx                       # News component for Home page
+│── .env.local                         # Environment variables
+│── next.config.js                     # Next.js configuration
+│── package.json                       # Dependencies
+│── README.md                          # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+```sh
+git clone https://github.com/your-username/nextjs-news-app.git
+cd nextjs-news-app
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+```sh
+npm install
+# OR
+yarn install
+```
 
-## Learn More
+3. **Set up environment variables**
+Create a `.env.local` file and add:
+```env
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEWS_API_KEY=your_news_api_key_here
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server**
+```sh
+npm run dev
+# OR
+yarn dev
+```
+Visit `http://localhost:3000` in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 API Usage
+### **Fetch News by Category**
+```
+GET /api/news/{category}
+```
+**Example:**
+```
+GET /api/news/technology
+```
+Returns:
+```json
+{
+  "articles": [
+    {
+      "title": "Tech News",
+      "description": "Latest updates in technology...",
+      "author": "John Doe",
+      "source": { "name": "TechCrunch" }
+    }
+  ]
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Made with ❤️ using Next.js & Tailwind CSS 🚀
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
